@@ -1,7 +1,6 @@
 // que al realizar el redireccionamiento a 'http://localhost:5173/devs/perfil' se carguen los datos del usuario que accedio 
 
-
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const LoginDev = () => {

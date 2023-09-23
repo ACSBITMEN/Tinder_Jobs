@@ -1,62 +1,71 @@
-import React from 'react'
-import '../Styles/App.css'
+import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../Styles/Home.css';
+import logoImage from '../assets/BgLogoStart.png';
+import IconOpcDev from '../assets/IconOpcionDev.png';
+import IconOpcEmp from '../assets/IconOpcionEmp.png';
 
-function LogoProyecto () {
+function LogoProyecto() {
   return (
-      <img className='user' src={'https://i.pinimg.com/736x/aa/bd/b6/aabdb6dead0fe78a3b1adac666b8158f.jpg'} 
-      alt = {'Logo proyecto'} style = {{height: 200}} />
-  )
+    <img
+    src={logoImage} 
+    alt='Logo proyecto' 
+    />
+  );
 }
 
-function NombreProyecto () {
+function UserButton() {
   return (
-      <>
-      <h1> TinderJobs </h1>
-      </>
-  )
+    <Link to="/devs">
+        <div className="card" id='OpcionDev'>
+          <div className="card-body text-center">
+            <h5 className="card-title d-flex justify-content-center align-items-center">Desarrollador</h5>
+            <img className="img-fluid" src={IconOpcDev} alt="IconDesarrollador" />
+          </div>
+        </div>
+    </Link>
+  );
 }
 
-function UserButton () {
-  function handleClick () {
-    alert ('¡Hiciste click!')
-  }
+function CompaniesButton() {
   return (
-    <button onClick={handleClick}>Ingresar como desarrollador </button>
-  )
-}
-
-function CompaniesButton () {
-  function handleClick () {
-      <Link to ='/companies'> ALUMNOS </Link>
-  }
-  return (
-    <button onClick={handleClick}>Ingresar como Compañia </button>
-  )
+    <Link to="/companies">
+      <div className="card" id='OpcionEmp'>
+        <div className="card-body text-center">
+          <h5 className="card-title d-flex justify-content-center align-items-center">Empresas</h5>
+          <img className="img-fluid"
+          src={IconOpcEmp}
+          alt="IconEmpresas"
+          />
+        </div>
+      </div>
+    </Link>
+  );
 }
 
 function Home() {
   return (
-    <>
-        <>
-        <LogoProyecto/>
-        </>
-
-        <>
-        <NombreProyecto/>
-        </>
-
-        <>
-        <UserButton/>
-        </>
-
-        <>
-        <CompaniesButton/>
-        </>     
-    </>
-)
+    <div className="container">
+      <div className="row">
+        <div className="col-12 text-center mb-4">
+          <LogoProyecto />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12 text-center">
+          <h2>Ingresa como:</h2>
+        </div>
+      </div>
+      <div className="row mt-4 d-flex justify-content-center align-items-center" id='container-options'>
+        <div className="col-md-6 col-6 mb-3" id='divOpcionDev'>
+          <UserButton />
+        </div>
+        <div className="col-md-6 col-6 mb-3" id='divOpcionEmp'>
+          <CompaniesButton />
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Home
-
-
-
+export default Home;

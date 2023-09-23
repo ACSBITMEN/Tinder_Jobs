@@ -1,0 +1,106 @@
+body {
+    margin: 0; /* Elimina los márgenes predeterminados del body */
+    padding: 0; /* Elimina el relleno predeterminado del body */
+    width: 100%; /* Ancho del body al 100% del viewport */
+    height: 100vh; /* Altura del body al 100% de la altura del viewport */
+    background-color: #f2f2f2;
+}  
+
+img {
+    max-width: 50%;
+    padding: 4rem 0 1rem 0;
+}
+
+h2 {
+    color: rgb(77, 77, 77);
+}
+
+#container-options div {
+    max-width: 350px;
+    transition: all 0.1s ease;
+}
+
+#container-options div:hover .card {
+    -webkit-box-shadow: -11px 13px 9px -4px rgba(0,0,0,0.28);
+    -moz-box-shadow: -11px 13px 9px -4px rgba(0,0,0,0.28);
+    box-shadow: -11px 13px 9px -4px rgba(0,0,0,0.28);
+    transform: scale(1.08);
+}
+
+#container-options #divOpcionDev {
+    margin-right: 1.5rem;
+}
+
+.card {
+    height: 400px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+#OpcionDev {
+    background: rgb(12,128,204);
+    background: radial-gradient(circle, rgba(12,128,204,1) 0%, rgba(0,80,132,1) 83%);
+}
+
+#OpcionEmp {
+    background: rgb(64,67,108);
+    background: radial-gradient(circle, rgb(71, 74, 116) 0%, rgba(41,43,70,1) 83%);
+}
+
+.card h5 {
+    padding-top: 5rem;
+    font-size: 25px;
+    color: #fff;
+}
+
+.card img {
+    padding-top: 1rem;
+    width: 50%;
+}
+
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 100%; /* Ancho del body al 100% del viewport */
+        height: 84vh; /* Altura del body al 100% de la altura del viewport */
+    }  
+
+    .card {
+        /* Cambia los estilos de las tarjetas para dispositivos móviles */
+        height: 300px;
+    }
+
+    #container-options div {
+        /* Cambia los estilos de los elementos div dentro de #container-options para dispositivos móviles */
+        padding: 10px;
+    }
+    
+    #container-options div:hover .card {
+        transform: scale(1.04);
+    }
+    
+    #container-options #divOpcionDev {
+        margin-right: 0;
+    }
+
+    img {
+        /* Cambia los estilos de las imágenes para dispositivos móviles */
+        max-width: 80%;
+        padding: 2rem 0 0.5rem 0;
+    }
+
+    .card h5 {
+        padding-top: 4rem;
+        font-size: 20px;
+    }
+
+    .card img {
+        padding-top: 1rem;
+        width: 75%;
+    }
+
+}

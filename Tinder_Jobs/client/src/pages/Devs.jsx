@@ -1,7 +1,7 @@
-import React from "react";
-
+import { Link } from 'react-router-dom';
 import LoginDev from "../Components/LoginDevs";
-import RegisterDevs from "../Components/RegisterDevs";
+// import RegisterDevs from "../Components/RegisterDevs";
+
 
 function Dev () {
     return (
@@ -11,9 +11,14 @@ function Dev () {
                 <LoginDev/>
             </div>
 
-            <div>
+            {/* <div>
                 <RegisterDevs/>
+            </div> */}
+
+            <div>
+                <Link to="/">Volver a la página de inicio</Link>
             </div>
+
         </>
 
 
