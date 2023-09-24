@@ -1,7 +1,7 @@
 // 1. modificar el ingreso de habilidades para poder seleccionar varias a la vez 
 // 2. comprobar funcionamieno
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function RegisterDevs() {
   const [formData, setFormData] = useState({

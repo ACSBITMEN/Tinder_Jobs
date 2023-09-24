@@ -38,11 +38,14 @@ const LoginDev = () => {
       console.error('Error en la solicitud:', error);
       if (error.response) {
         // Si la respuesta tiene un estado de error (por ejemplo, 401 o 500)
-        alert(`Error: credenciales incorrectas`); // Muestra el mensaje de error de la respuesta
+        const errorMessage = 'Error: credenciales incorrectas'; // Verifica si se asigna el mensaje correctamente
+        setErrorMessage(errorMessage); // Muestra el mensaje de error de la respuesta
       } else {
         // Si no hay respuesta, muestra un mensaje genérico de error
-        alert('Error al realizar la solicitud');
+        const errorMessage = 'Error al realizar la solicitud'; // Verifica si se asigna el mensaje correctamente
+        setErrorMessage(errorMessage);
       }
+      console.log('errorMessage:', errorMessage); // Agrega este console.log para verificar el valor
     }
   };
 
@@ -87,7 +90,11 @@ const LoginDev = () => {
                         </div>
                         <div className="d-grid gap-2">
                             <button type="submit" className="btn btn-primary mt-2" id='btnLogin'>Iniciar Sesión</button>
-                            {errorMessage && <p>{errorMessage}</p>}
+                            {errorMessage && (
+                            <div className="alert alert-danger mt-2" role="alert">
+                              {errorMessage}
+                            </div>
+                            )}
                             <button type="button" className="btn btn-secondary">Registrarse</button>
                         </div>
                     </form>

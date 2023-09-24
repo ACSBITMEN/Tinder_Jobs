@@ -1,5 +1,3 @@
-import React from 'react'
-
 import {
     BrowserRouter,
     Routes,
@@ -8,6 +6,7 @@ import {
 
 import Home from './pages/Home'
 import Dev from './pages/Devs'
+
 
 
 
@@ -23,8 +22,6 @@ function MyRoutes () {
 
                 <Route path = "/" element = {<Home/>}/>
                 <Route path = "/devs" element = {<Dev/>}/>
-
-
 
 
                 {/* <Route path = "/api/devs" element = {<AllDevs/>}/>
