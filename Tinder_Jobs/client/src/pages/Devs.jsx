@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import LoginDev from "../Components/LoginDevs";
-import BtnSocialMedia from '../Components/BtnSocialMedia';
 
 
 function Dev () {
@@ -8,15 +7,11 @@ function Dev () {
 
         <>
             <div>
+                <Link to="/" className="btn m-2"> ← Volver a inicio</Link>
+            </div>
+            
+            <div>
                 <LoginDev/>
-            </div>
-
-            <div>
-            <BtnSocialMedia/>
-            </div>
-
-            <div>
-                <Link to="/">Volver a la página de inicio</Link>
             </div>
 
         </>
