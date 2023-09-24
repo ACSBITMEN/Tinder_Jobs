@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import LoginDev from "../Components/LoginDevs";
-// import RegisterDevs from "../Components/RegisterDevs";
+import BtnSocialMedia from '../Components/BtnSocialMedia';
 
 
 function Dev () {
@@ -11,9 +11,9 @@ function Dev () {
                 <LoginDev/>
             </div>
 
-            {/* <div>
-                <RegisterDevs/>
-            </div> */}
+            <div>
+            <BtnSocialMedia/>
+            </div>
 
             <div>
                 <Link to="/">Volver a la página de inicio</Link>
