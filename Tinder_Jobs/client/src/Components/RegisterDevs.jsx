@@ -2,6 +2,7 @@
 // 2. comprobar funcionamieno
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import BtnSocialMedia from '../Components/BtnSocialMedia';
 import '../styles/RegisterDevs.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -68,12 +69,16 @@ function RegisterDevs() {
     };
     
     return (
-        <div className="container mt-4 mb-4">
+        <>
+        <div>
+            <Link to="/devs" className="btn m-2"> ← Volver a login</Link>
+        </div>
+        <div id='formRegister' className="container mt-0 mb-1">
         <div className="row justify-content-center">
             <div className="col-md-7">
             <div className="card">
                 <div className="card-body">
-                    <h3 className="card-title text-center mt-3 mb-4">
+                    <h3 className="card-title text-center mt-3 mb-3">
                         <i className="fa fa-pencil"></i>
                         Regístrate
                         </h3>
@@ -294,7 +299,7 @@ function RegisterDevs() {
             </div>
         </div>
         </div>
+    </>
     );
 }
-
 export default RegisterDevs;

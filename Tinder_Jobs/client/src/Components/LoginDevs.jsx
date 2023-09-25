@@ -1,7 +1,11 @@
 // que al realizar el redireccionamiento a 'http://localhost:5173/devs/perfil' se carguen los datos del usuario que accedio 
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BtnSocialMedia from '../Components/BtnSocialMedia'
+import '../Styles/LoginDevs.css'
+
 
 const LoginDev = () => {
   const [email, setEmail] = useState('');
@@ -10,6 +14,8 @@ const LoginDev = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [id, setDevId] = useState(null); 
 
+  const navigate = useNavigate();
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -17,6 +23,10 @@ const LoginDev = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+
+  const handleRegisterClick = () => {
+    navigate('/Register'); // Redirige a la página de registro
+  };  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,6 +56,7 @@ const LoginDev = () => {
       window.location.href = `http://localhost:5173/devs/perfil/${id}`;
     }
   }, [loggedIn, id]);
+
 
   return (
     <div className="container pt-5 mb-4">
@@ -87,10 +98,10 @@ const LoginDev = () => {
                               {errorMessage}
                             </div>
                             )}
-                            <button type="button" className="btn btn-secondary">Registrarse</button>
+                            <button type="button" className="btn btn-secondary" onClick={handleRegisterClick}>Registrarse</button>
                         </div>
                     </form>
-                    {/* <BtnSocialMedia/> */}
+                    <BtnSocialMedia/>
                 </div>
             </div>
         </div>
