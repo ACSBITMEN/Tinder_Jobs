@@ -1,16 +1,14 @@
 // que al realizar el redireccionamiento a 'http://localhost:5173/devs/perfil' se carguen los datos del usuario que accedio 
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import BtnSocialMedia from '../Components/BtnSocialMedia';
-import 'font-awesome/css/font-awesome.min.css';
-import '../Styles/LoginDevs.css';
 
 const LoginDev = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
+  const [id, setDevId] = useState(null); 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -30,30 +28,24 @@ const LoginDev = () => {
       });
 
       if (response.status === 200) {
+        const id = response.data.id;
         setLoggedIn(true);
+        setDevId(id); 
+        window.location.href = `http://localhost:5173/devs/perfil/${id}`;
       } else {
         setErrorMessage('Inicio de sesión fallido');
       }
     } catch (error) {
       console.error('Error en la solicitud:', error);
-      if (error.response) {
-        // Si la respuesta tiene un estado de error (por ejemplo, 401 o 500)
-        const errorMessage = 'Error: credenciales incorrectas'; // Verifica si se asigna el mensaje correctamente
-        setErrorMessage(errorMessage); // Muestra el mensaje de error de la respuesta
-      } else {
-        // Si no hay respuesta, muestra un mensaje genérico de error
-        const errorMessage = 'Error al realizar la solicitud'; // Verifica si se asigna el mensaje correctamente
-        setErrorMessage(errorMessage);
-      }
-      console.log('errorMessage:', errorMessage); // Agrega este console.log para verificar el valor
+      setErrorMessage('Error en la solicitud');
     }
   };
 
   useEffect(() => {
     if (loggedIn) {
-      window.location.href = 'http://localhost:5173/devs/perfil';
+      window.location.href = `http://localhost:5173/devs/perfil/${id}`;
     }
-  }, [loggedIn]);
+  }, [loggedIn, id]);
 
   return (
     <div className="container pt-5 mb-4">
@@ -98,7 +90,7 @@ const LoginDev = () => {
                             <button type="button" className="btn btn-secondary">Registrarse</button>
                         </div>
                     </form>
-                    <BtnSocialMedia/>
+                    {/* <BtnSocialMedia/> */}
                 </div>
             </div>
         </div>
