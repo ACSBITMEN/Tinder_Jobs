@@ -1,0 +1,75 @@
+#ContainerPerfilDev {
+ width: 100%; /* Ancho del body al 100% del viewport */
+ height: 100vh; /* Altura del body al 100% de la altura del viewport */
+ background-color: #1d1d1d;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+#ContainerPerfilDev .card {
+  min-width: 320px;
+  max-width: 400px;
+}
+
+#ContainerPerfilDev .card-body {
+  padding-top: .2rem;
+}
+
+/* Estilo para capitalizar la primera letra */
+#ContainerPerfilDev .capitalizar-primera-letra {
+  text-transform: capitalize;
+}
+
+
+#ContainerPerfilDev .card img {
+ padding: .5rem;
+ border-top-right-radius: 15px;
+ border-top-left-radius: 15px;
+ height: 320px;
+ width: 100%;
+ object-fit: cover;
+}
+
+#ContainerPerfilDev label {
+  margin-bottom: 3px;
+  font-weight: 600;
+  color: #222222;
+}
+
+#ContainerPerfilDev h4 {
+  font-size: 150%;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+#ContainerPerfilDev #subTitle {
+  font-weight: 600;
+}
+
+#ContainerPerfilDev span {
+  color: black;
+}
+
+#ContainerPerfilDev p {
+  font-weight: 400;
+}
+
+#ContainerPerfilDev p p {
+  margin: 0;
+  padding: 0;
+}
+
+#ContainerPerfilDev #HabilidadesDev span {
+  border: .5px solid #8d8d8dd8;
+  margin: 0 3px;
+}
+
+#ContainerPerfilDev #HabilidadesDev span:hover {
+  border: .5px solid #1d1d1d;
+  cursor: pointer;
+}
+
+#ContainerPerfilDev .card-footer {
+  border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
+} 
