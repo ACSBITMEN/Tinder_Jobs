@@ -1,0 +1,27 @@
+.card {
+    padding: 0 1rem 1rem;
+    transition: all 0.1s ease;
+}
+
+.card:hover {
+    -webkit-box-shadow: 0px 0px 11px 6px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: 0px 0px 11px 6px rgba(0, 0, 0, 0.14);
+    box-shadow: 0px 0px 11px 6px rgba(0, 0, 0, 0.14);
+    transform: scale(1.01);
+}
+
+.form-label {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 0.1rem;
+}
+
+h3 i {
+    color: gray;
+    margin-right: .8rem;
+}
+
+h5 {
+    font-size: 18px;
+    color: rgb(110, 110, 110);
+}

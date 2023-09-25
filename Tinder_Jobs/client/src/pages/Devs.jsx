@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import LoginDev from "../Components/LoginDevs";
+import RegistroDev from "../Components/RegisterDevs";
 
 
 function Dev () {
@@ -11,6 +12,9 @@ function Dev () {
             </div>
             <div>
                 <LoginDev/>
+            </div>
+            <div>
+                <RegistroDev />
             </div>
 
         </>

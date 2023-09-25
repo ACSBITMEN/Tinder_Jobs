@@ -1,3 +1,5 @@
+import React from 'react'
+
 import {
     BrowserRouter,
     Routes,
@@ -6,10 +8,7 @@ import {
 
 import Home from './pages/Home'
 import Dev from './pages/Devs'
-
-// import AllDevs from './pages/AllDevs'
-// import LoginDev from './Components/LoginDevs'
-// import PerfilDev from './pages/perfilDev' 
+import PerfilDev from './pages/PerfilDev'
 
 function MyRoutes () {
     return (
@@ -20,11 +19,7 @@ function MyRoutes () {
                 <Route path = "/" element = {<Home/>}/>
                 <Route path = "/devs" element = {<Dev/>}/>
 
-
-                {/* <Route path = "/api/devs" element = {<AllDevs/>}/>
-                <Route path = "/api/devs/login" element = {<LoginDev/>}/> */}
-                {/* <Route path = "devs/perfil" element = {<PerfilDev/>}/> */}
-
+                <Route path = "/devs/perfil/:id" element={<PerfilDev/>}/>
             </Routes>
     </BrowserRouter>
     )
