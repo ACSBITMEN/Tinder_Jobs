@@ -2,6 +2,22 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../Styles/PerfilDev.css'
 
+
+const PerfilDev = () => {
+  const { id } = useParams();
+  const [dev, setDev] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/api/devs/${id}`)
+      .then((response) => response.json())
+      .then((data) => setDev(data))
+      .catch((error) => console.error('Error:', error));
+  }, [id]);
+
+  if (!dev) {
+    return <div>Cargando...</div>;
+  }
+
 // Función para obtener el color de fondo según la habilidad
 function obtenerColorFondo(habilidad) {
   switch (habilidad) {
@@ -25,27 +41,18 @@ function obtenerColorFondo(habilidad) {
   }
 }
 
-const PerfilDev = () => {
-  const { id } = useParams();
-  const [dev, setDev] = useState(null);
-
-  useEffect(() => {
-    fetch(`http://localhost:3001/api/devs/${id}`)
-      .then((response) => response.json())
-      .then((data) => setDev(data))
-      .catch((error) => console.error('Error:', error));
-  }, [id]);
-
-  if (!dev) {
-    return <div>Cargando...</div>;
-  }
+// Funcion para mostrar y ocultar el div de los MATCH 
+const toggleMatchInfo = () => {
+  const matchInfo = document.getElementById('matchInfo');
+  matchInfo.classList.toggle('show');
+};
 
   return (
     <div id="ContainerPerfilDev" >
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
-            <div className="card">
+          <div id='containerCardDev' className="col-md-12 d-flex justify-content-center">
+            <div id='cardDev' className="card">
               <img src={dev.imagen || "https://media.istockphoto.com/id/1300972574/photo/millennial-male-team-leader-organize-virtual-workshop-with-employees-online.jpg?s=612x612&w=0&k=20&c=uP9rKidKETywVil0dbvg_vAKyv2wjXMwWJDNPHzc_Ug="} alt={`Imagen de ${dev.nombres}`} className="card-img-top" />
               <div className="card-body">
                 <h4 className='text-center'>
@@ -75,11 +82,54 @@ const PerfilDev = () => {
                 </div>
                 <div className="card-body d-flex justify-content-between rowbtn pt-3">
                 <button className="btn btn-secondary">Salir</button>
-                <button href="#" className="btn btn-danger">MATCH</button>
+                <button onClick={toggleMatchInfo} className="btn btn-danger">MATCH</button>
               </div>
             </div>
+            <div>
+            <div id="matchInfo" className="match-info card col-md-4 ">
+              <h4 className='text-center mb-3'>Matches realizados</h4>
+              <p>Aqui podras ver las empresas las cuales coinciden con tus habilidades tecnicas y estan buscando desarrolladores, haz Match y contacta con ellas.</p>
+              <div id='containerMatches' className='card'> 
+                    <div className='d-flex MatchDev'>
+                      <div>
+                        <img src="https://ams3.digitaloceanspaces.com/graffica/2023/02/cocacola-logo.jpeg" alt="" />
+                      </div>
+                      <div>
+                        <h5 className='text-center mb-1'>Coca Cola</h5>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit expedita incidunt deserunt dolor nihil beatae.</p>
+                      </div>
+                    </div>
+                    <div className='d-flex MatchDev'>
+                      <div>
+                        <img src="https://www.celuweb.com/wp-content/uploads/2020/05/postobonlogo.jpg" alt="" />
+                      </div>
+                      <div>
+                        <h5 className='text-center mb-1'>Postobon</h5>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero odit quod totam.</p>
+                      </div>
+                    </div>
+                    <div className='d-flex MatchDev'>
+                      <div>
+                        <img src="https://play-lh.googleusercontent.com/qRKpBfYmcxMMfSpnGfNnlRsx2A3EOegnHk2tzD0zQpWNfnZ0aC-u7-Qm5mMFv3FRc2c" alt="" />
+                      </div>
+                      <div>
+                        <h5 className='text-center mb-1'>Rappi</h5>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, aut.</p>
+                      </div>
+                    </div>
+                    <div className='d-flex MatchDev'>
+                      <div>
+                        <img src="" alt="" />
+                      </div>
+                      <div>
+                        <h5 className='text-center mb-1'>Rappi</h5>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, aut.</p>
+                      </div>
+                    </div>
+              </div>
+            </div>
+            </div>
           </div>
-          {/* Puedes repetir este bloque de col-md-4 para más tarjetas */}
         </div>
       </div>
     </div>

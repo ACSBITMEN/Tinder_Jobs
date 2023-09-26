@@ -1,15 +1,15 @@
 #ContainerPerfilDev {
- width: 100%; /* Ancho del body al 100% del viewport */
- height: 100vh; /* Altura del body al 100% de la altura del viewport */
- background-color: #1d1d1d;
- display: flex;
- align-items: center;
- justify-content: center;
+  width: 100%; /* Ancho del body al 100% del viewport */
+  height: 100vh; /* Altura del body al 100% de la altura del viewport */
+  background-color: #1d1d1d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#ContainerPerfilDev .card {
+#ContainerPerfilDev #cardDev {
   min-width: 320px;
-  max-width: 400px;
+  max-width: 370px;
 }
 
 #ContainerPerfilDev .card-body {
@@ -23,12 +23,12 @@
 
 
 #ContainerPerfilDev .card img {
- padding: .5rem;
- border-top-right-radius: 15px;
- border-top-left-radius: 15px;
- height: 320px;
- width: 100%;
- object-fit: cover;
+  padding: .5rem;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  height: 320px;
+  width: 100%;
+  object-fit: cover;
 }
 
 #ContainerPerfilDev label {
@@ -73,3 +73,67 @@
 #ContainerPerfilDev .card-footer {
   border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
 } 
+
+#ContainerPerfilDev .row {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#ContainerPerfilDev #containerCardDev {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* MATCH */
+.match-info {
+  min-height: 320px;
+  width: 100%;
+  max-width: 600px; /* Ancho deseado del div lateral */
+  height: 100%;
+  position: relative; /* Cambia a posición relativa */
+  background-color: #f7f7f7;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  display: none; /* Inicialmente oculto */
+  transition: right 2s cubic-bezier(0.4, 2.2, 0.5, 1);
+}
+
+.card + .match-info {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Posición a la derecha de .card */
+}
+
+.show {
+  display: block; /* Muestra el div lateral al hacer clic en el botón MATCH */
+}
+
+
+#ContainerPerfilDev #containerMatches {
+  max-height: 545px;
+  padding: .5rem;
+  overflow-y: auto;
+}
+
+#ContainerPerfilDev #containerMatches .MatchDev {
+  max-height: 125px;
+  background-color: rgb(238, 238, 238);
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  padding: .5rem;
+}
+
+#ContainerPerfilDev #containerMatches .MatchDev h5 {
+  width: 100%;
+  background-color: azure;
+}
+
+#ContainerPerfilDev #containerMatches .MatchDev img {
+  background-color: rgb(240, 255, 240);
+  height: 100px;
+  width: 125px;
+  padding: 0;
+  border-radius: 0%;
+  margin-right: 8px;
+  object-fit:cover;
+}
