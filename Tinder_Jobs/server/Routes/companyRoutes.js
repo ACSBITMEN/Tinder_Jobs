@@ -7,6 +7,6 @@ router.get('/companies/:id', companyController.getOneCompany);
 router.post('/companies', companyController.createCompany);
 router.patch('/companies/:id', companyController.updateCompany);
 router.delete('/companies/:id', companyController.deleteCompany);
-router.post('/loginCompany', companyController.loginCompany)
+router.post('/companies/loginCompany', companyController.loginCompany)
 
 module.exports = router;
