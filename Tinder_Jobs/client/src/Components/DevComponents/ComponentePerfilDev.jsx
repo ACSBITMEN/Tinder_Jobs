@@ -1,21 +1,12 @@
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import DevMatch from './ComponenteMatchDev';
-=======
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import DevMatch from './ComponenteMatchDev';
 import '../../Styles/PerfilDev.css'
->>>>>>> main
 
 const ComponentePerfilDev = () => {
   const { id } = useParams();
   const [dev, setDev] = useState(null);
-<<<<<<< HEAD
-=======
   const [showDevMatchPanel, setShowDevMatchPanel] = useState(false);
->>>>>>> main
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/devs/${id}`)
@@ -28,26 +19,6 @@ const ComponentePerfilDev = () => {
     return <div>Cargando...</div>;
   }
 
-<<<<<<< HEAD
-  return (
-    <>
-    <div>
-      <h1>Perfil de Desarrollador</h1>
-      <p>Nombre: {dev.nombres} {dev.apellidos}</p>
-      <p>Email: {dev.email}</p>
-      <p>Telefono: {dev.telefono}</p>
-      <h2>Rol:</h2>
-      <p>{dev.rol}</p>
-      <h2>Habilidades:</h2>
-      <ul>
-        {dev.habilidades.map((habilidad, index) => (
-          <li key={index}>{habilidad.nombre}</li>
-        ))}
-      </ul>
-    </div>
-    <div>
-      <DevMatch id={id} />
-=======
 // Función para obtener el color de fondo según la habilidad
 function obtenerColorFondo(habilidad) {
   switch (habilidad) {
@@ -121,7 +92,6 @@ function obtenerColorFondo(habilidad) {
             </div>
           </div>
       </div>
->>>>>>> main
     </div>
     </>
   );
