@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 // que al realizar el redireccionamiento a 'http://localhost:5173/devs/perfil' se carguen los datos del usuario que accedio 
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import RegisterDevs from './RegisterDevs';
 
 const LoginDev = () => {
   const [email, setEmail] = useState('');
@@ -91,6 +93,7 @@ const LoginDev = () => {
                         </div>
                     </form>
                     {/* <BtnSocialMedia/> */}
+                    <RegisterDevs/>
                 </div>
             </div>
         </div>
