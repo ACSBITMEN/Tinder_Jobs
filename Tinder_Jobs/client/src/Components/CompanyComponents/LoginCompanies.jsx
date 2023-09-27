@@ -1,65 +1,60 @@
-// que al realizar el redireccionamiento a 'http://localhost:5173/devs/perfil' se carguen los datos del usuario que accedio 
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import BtnSocialMedia from '../BtnSocialMedia'
-import '../../Styles/LoginDevs.css'
 
+const LoginCompanies = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [id, setCompanyId] = useState(null); 
 
-const LoginDev = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [id, setDevId] = useState(null); 
+    const navigate = useNavigate();
 
-  const navigate = useNavigate();
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+      };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+    const handleRegisterClick = () => {
+      navigate('/RegisterCompany'); // Redirige a la página de registro
+    };  
 
-  const handleRegisterClick = () => {
-    navigate('/RegisterDev'); // Redirige a la página de registro
-  };  
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        try {
+          const response = await axios.post('http://localhost:3001/api/companies/loginCompany', {
+            email,
+            password,
+          });
+    
+          if (response.status === 200) {
+            const id = response.data.id;
+            setLoggedIn(true);
+            setCompanyId(id); 
+            window.location.href = `http://localhost:5173/companies/perfil/${id}`;
+          } else {
+            setErrorMessage('Inicio de sesión fallido');
+          }
+        } catch (error) {
+          console.error('Error en la solicitud:', error);
+          setErrorMessage('Error en la solicitud');
+        }
+      };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+      useEffect(() => {
+        if (loggedIn) {
+          window.location.href = `http://localhost:5173/companies/perfil/${id}`;
+        }
+      }, [loggedIn, id]);
 
-    try {
-      const response = await axios.post('http://localhost:3001/api/devs/loginDev', {
-        email,
-        password,
-      });
-
-      if (response.status === 200) {
-        const id = response.data.id;
-        setLoggedIn(true);
-        setDevId(id); 
-        window.location.href = `http://localhost:5173/devs/perfil/${id}`;
-      } else {
-        setErrorMessage('Inicio de sesión fallido');
-      }
-    } catch (error) {
-      console.error('Error en la solicitud:', error);
-      setErrorMessage('Error en la solicitud');
-    }
-  };
-
-  useEffect(() => {
-    if (loggedIn) {
-      window.location.href = `http://localhost:5173/devs/perfil/${id}`;
-    }
-  }, [loggedIn, id]);
-
-
-  return (
-    <div id='containerLoginDev' className="container pt-5 mb-4">
+    return (
+<div id='containerLoginDev' className="container pt-5 mb-4">
     <div className="row justify-content-center">
         <div className="col-md-6">
             <div className="card">
@@ -108,6 +103,6 @@ const LoginDev = () => {
     </div>
 </div>
   );
-};
+}   
 
-export default LoginDev;
+export default LoginCompanies
