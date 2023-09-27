@@ -6,7 +6,7 @@ import {
 
 import Home from './pages/Home'
 import Dev from './pages/Devs'
-import RegisterDev from './Components/RegisterDevs'
+import RegisterDev from './Components/DevComponents/RegisterDevs'
 import PerfilDev from './pages/PerfilDev'
 
 function MyRoutes () {

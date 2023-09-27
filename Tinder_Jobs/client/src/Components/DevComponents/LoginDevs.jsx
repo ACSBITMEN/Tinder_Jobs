@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import BtnSocialMedia from '../Components/BtnSocialMedia'
-import '../Styles/LoginDevs.css'
+import BtnSocialMedia from '../BtnSocialMedia'
+import '../../Styles/LoginDevs.css'
 
 
 const LoginDev = () => {

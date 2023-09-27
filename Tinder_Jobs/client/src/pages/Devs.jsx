@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import LoginDev from "../Components/LoginDevs";
+import LoginDev from "../Components/DevComponents/LoginDevs";
 
 
 function Dev () {
@@ -13,7 +13,6 @@ function Dev () {
                 <LoginDev/>
             </div>
         </>
-
 
     )
 }

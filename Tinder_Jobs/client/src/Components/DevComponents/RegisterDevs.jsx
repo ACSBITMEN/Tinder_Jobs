@@ -3,8 +3,8 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import BtnSocialMedia from '../Components/BtnSocialMedia';
-import '../styles/RegisterDevs.css';
+import BtnSocialMedia from '../BtnSocialMedia';
+import '../../styles/RegisterDevs.css';
 import 'font-awesome/css/font-awesome.min.css';
 
 function RegisterDevs() {
