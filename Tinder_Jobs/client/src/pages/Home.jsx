@@ -45,7 +45,7 @@ function CompaniesButton() {
 
 function Home() {
   return (
-    <div className="container">
+    <div id='containerHome' className="container">
       <div className="row">
         <div className="col-12 text-center mb-4">
           <LogoProyecto />

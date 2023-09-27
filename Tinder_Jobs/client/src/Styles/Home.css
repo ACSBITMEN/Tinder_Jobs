@@ -6,36 +6,36 @@ body {
     background-color: #f2f2f2;
 }  
 
-img {
+#containerHome img {
     max-width: 50%;
     padding: 4rem 0 1rem 0;
 }
 
-h2 {
+#containerHome h2 {
     color: rgb(77, 77, 77);
 }
 
-#container-options div {
+#containerHome #container-options div {
     max-width: 350px;
     transition: all 0.1s ease;
 }
 
-#container-options div:hover .card {
+#containerHome #container-options div:hover .card {
     -webkit-box-shadow: -11px 13px 9px -4px rgba(0,0,0,0.28);
     -moz-box-shadow: -11px 13px 9px -4px rgba(0,0,0,0.28);
     box-shadow: -11px 13px 9px -4px rgba(0,0,0,0.28);
     transform: scale(1.08);
 }
 
-#container-options #divOpcionDev {
+#containerHome #container-options #divOpcionDev {
     margin-right: 1.5rem;
 }
 
-.card {
+#containerHome .card {
     height: 400px;
 }
 
-a {
+#containerHome a {
     text-decoration: none;
 }
 
@@ -50,23 +50,23 @@ a {
     background: radial-gradient(circle, rgb(71, 74, 116) 0%, rgba(41,43,70,1) 83%);
 }
 
-.card h5 {
+#containerHome .card h5 {
     padding-top: 5rem;
     font-size: 25px;
     color: #fff;
 }
 
-.card img {
+#containerHome .card img {
     padding-top: 1rem;
     width: 50%;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .d-flex {
+    #containerHome .d-flex {
         flex-wrap: nowrap;
     }
 
-    .card img {
+    #containerHome .card img {
         padding-top: 1rem;
         width: 50%;
     }
@@ -74,12 +74,12 @@ a {
 
 @media (max-width: 767px) {
 
-    .container {
+    #containerHome .container {
         width: 100%; /* Ancho del body al 100% del viewport */
         height: 84vh; /* Altura del body al 100% de la altura del viewport */
     }  
 
-    .card {
+    #containerHome .card {
         /* Cambia los estilos de las tarjetas para dispositivos móviles */
         height: 300px;
     }
@@ -97,18 +97,18 @@ a {
         margin-right: 0;
     }
 
-    img {
+    #containerHome img {
         /* Cambia los estilos de las imágenes para dispositivos móviles */
         max-width: 80%;
         padding: 2rem 0 0.5rem 0;
     }
 
-    .card h5 {
+    #containerHome .card h5 {
         padding-top: 4rem;
         font-size: 20px;
     }
 
-    .card img {
+    #containerHome .card img {
         padding-top: 1rem;
         width: 70%;
     }

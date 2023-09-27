@@ -12,9 +12,7 @@ function Dev () {
             <div>
                 <LoginDev/>
             </div>
-
         </>
-
 
     )
 }

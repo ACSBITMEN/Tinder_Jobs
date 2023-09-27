@@ -1,0 +1,28 @@
+#formRegister .card {
+    padding: 0 1rem .5rem;
+    transition: all 0.1s ease;
+}
+
+#formRegister .card:hover {
+    -webkit-box-shadow: 0px 0px 11px 6px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: 0px 0px 11px 6px rgba(0, 0, 0, 0.14);
+    box-shadow: 0px 0px 11px 6px rgba(0, 0, 0, 0.14);
+    transform: scale(1.01);
+}
+
+#formRegister .form-label {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 0.1rem;
+}
+
+#formRegister h3 i {
+    color: gray;
+    margin-right: .8rem;
+}
+
+#formRegister .card h5 {
+    padding-top: 1rem;
+    font-size: 18px;
+    color: rgb(110, 110, 110);
+}
