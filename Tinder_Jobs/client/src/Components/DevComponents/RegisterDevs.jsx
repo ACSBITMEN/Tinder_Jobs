@@ -75,7 +75,7 @@ const RegisterDevs = () => {
     return (
         <>
         <div>
-            <Link to="/devs" className="btn m-2"> ← Volver a login</Link>
+            <Link to="/devs" className="btn m-2"> ← Volver al login</Link>
         </div>
         <div id='formRegister' className="container mt-0 mb-1">
         <div className="row justify-content-center">

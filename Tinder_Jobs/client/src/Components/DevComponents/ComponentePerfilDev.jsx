@@ -53,15 +53,15 @@ function obtenerColorFondo(habilidad) {
             <div id='cardDev' className="card col-md-6">
               <img src={dev.imagen || "https://media.istockphoto.com/id/1300972574/photo/millennial-male-team-leader-organize-virtual-workshop-with-employees-online.jpg?s=612x612&w=0&k=20&c=uP9rKidKETywVil0dbvg_vAKyv2wjXMwWJDNPHzc_Ug="} alt={`Imagen de ${dev.nombres}`} className="card-img-top" />
               <div className="card-body">
-                <h4 className='text-center'>
+                <h4 className="text-center">
                   {dev.nombres.toUpperCase()} {dev.apellidos.toUpperCase()}
                 </h4>
                 <p id='subTitle' className='text-center capitalizar-primera-letra'>Desarrollador {dev.rol}</p>
                 <p>Datos de contacto</p>
-                <div className='card-text'>
+                <div className="card-text">
                   <p><strong>Email:</strong> {dev.email}</p>
                   <p><strong>Teléfono:</strong> {dev.telefono}</p>
-                  <p className='capitalizar-primera-letra'>
+                  <p className="capitalizar-primera-letra">
                     <strong>Ubicación:</strong> {dev.ciudad}, {dev.pais}
                   </p>
                   <p><strong>Experiencia en el cargo:</strong> {dev.experiencia}</p>
