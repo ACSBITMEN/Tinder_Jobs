@@ -26,3 +26,17 @@
     font-size: 18px;
     color: rgb(110, 110, 110);
 }
+
+#formRegister #containerStack label {
+    background-color: rgb(224, 224, 224);
+    color: rgb(59, 59, 59);
+    margin: .2rem .5rem;
+    padding: 1px 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(163, 163, 163);
+    cursor: pointer;
+}
+
+#formRegister #containerStack input {
+   margin-right: 5px;
+}

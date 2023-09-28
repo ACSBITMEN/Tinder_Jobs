@@ -2,260 +2,76 @@
 // 2. comprobar funcionamieno
 
 import { useState } from 'react';
-<<<<<<< HEAD
-
-function RegisterDevs() {
-  const [formData, setFormData] = useState({
-    nombres: '',
-    apellidos: '',
-    telefono: '',
-    email: '',
-    rol: '',
-    habilidades: [],
-    experiencia: '',
-    pais: '',
-    ciudad: '',
-    password: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:3001/api/devs/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.status === 201) {
-        alert('Registro exitoso');
-        // Puedes redirigir al usuario a otra página aquí si lo deseas
-      } else {
-        alert('Error al registrar al desarrollador');
-      }
-    } catch (error) {
-      console.error('Error en la solicitud POST:', error);
-    }
-  };
-
-  return (
-    <div>
-      <h2>Registro de Desarrollador</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="nombres">Nombres:</label>
-          <input
-            type="text"
-            id="nombres"
-            name="nombres"
-            value={formData.nombres}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="apellidos">Apellidos:</label>
-          <input
-            type="text"
-            id="apellidos"
-            name="apellidos"
-            value={formData.apellidos}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="telefono">Teléfono:</label>
-          <input
-            type="text"
-            id="telefono"
-            name="telefono"
-            value={formData.telefono}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="rol">Rol:</label>
-          <select
-            id="rol"
-            name="rol"
-            value={formData.rol}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Seleccionar Rol</option>
-            <option value="back">Backend</option>
-            <option value="front">Frontend</option>
-            <option value="fullstack">Fullstack</option>
-          </select>
-        </div>
-
-        <div>
-        <label htmlFor="habilidades">Habilidades:</label>
-        <select
-            id="habilidades"
-            name="habilidades"
-            value={formData.habilidades}
-            onChange={handleChange}
-            multiple 
-            required
-        >
-            <option value="html">HTML</option>
-            <option value="javascript">JavaScript</option>
-            <option value="react">React</option>
-            <option value="node.js">Node.js</option>
-            <option value="sql">SQL</option>
-            <option value="nosql">NoSQL</option>
-            <option value="css">CSS</option>
-        </select>
-        </div>
-
-        <div>
-          <label htmlFor="experiencia">Experiencia:</label>
-          <select
-            id="experiencia"
-            name="experiencia"
-            value={formData.experiencia}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Seleccionar Experiencia</option>
-            <option value="practicas">Prácticas</option>
-            <option value="sin experiencia">Sin experiencia</option>
-            <option value="1 año">1 año</option>
-            <option value="2 años">2 años</option>
-            <option value="3 años">3 años</option>
-            <option value="mas de 4">Más de 4 años</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="pais">País:</label>
-          <input
-            type="text"
-            id="pais"
-            name="pais"
-            value={formData.pais}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="ciudad">Ciudad:</label>
-          <input
-            type="text"
-            id="ciudad"
-            name="ciudad"
-            value={formData.ciudad}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Contraseña:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">Registrarse</button>
-      </form>
-    </div>
-  );
-}
-
-=======
 import { Link } from 'react-router-dom';
 import BtnSocialMedia from '../BtnSocialMedia';
 import '../../styles/RegisterDevs.css';
 import 'font-awesome/css/font-awesome.min.css';
 
-function RegisterDevs() {
+const RegisterDevs = () => {
     const [formData, setFormData] = useState({
         nombres: '',
         apellidos: '',
         telefono: '',
         email: '',
-        rol: '',
-        habilidades: [],
-        experiencia: '',
+        rol: 'front',
+        habilidades: [
+            { nombre: 'html', nivel: false },
+            { nombre: 'javascript', nivel: false },
+            { nombre: 'react', nivel: false },
+            { nombre: 'node.js', nivel: false },
+            { nombre: 'sql', nivel: false },
+            { nombre: 'nosql', nivel: false },
+            { nombre: 'css', nivel: false },
+        ],
+        experiencia: 'practicas',
         pais: '',
         ciudad: '',
         password: '',
     });
     
-    const handleHabilidadChange = (e) => {
-        const { value, checked } = e.target;
-        if (checked) {
-            // Agregar la habilidad al array
-            setFormData((prevData) => ({
-            ...prevData,
-            habilidades: [...prevData.habilidades, value],
-            }));
-        } else {
-            // Remover la habilidad del array
-            setFormData((prevData) => ({
-            ...prevData,
-            habilidades: prevData.habilidades.filter((habilidad) => habilidad !== value),
-            }));
-        }
-    };
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
+    const handleCheckboxChange = (event) => {
+        const { name, checked } = event.target;
+        const updatedHabilidades = formData.habilidades.map((habilidad) =>
+            habilidad.nombre === name ? { ...habilidad, nivel: checked } : habilidad
+        );
         setFormData({
             ...formData,
-            [name]: value,
+            habilidades: updatedHabilidades,
         });
     };
     
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        
         try {
+            const selectedHabilidades = formData.habilidades.filter(
+                (habilidad) => habilidad.nivel
+            );
+        
+            const formDataToSend = {
+                ...formData,
+                habilidades: selectedHabilidades,
+            };
+        
             const response = await fetch('http://localhost:3001/api/devs/create', {
                 method: 'POST',
                 headers: {
-                'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(formDataToSend),
             });
         
             if (response.status === 201) {
-                alert('Registro exitoso');
-                // Puedes redirigir al usuario a otra página aquí si lo deseas
+                console.log('Registro exitoso');
+                window.location.href = 'http://localhost:5173/';
             } else {
-                alert('Error al registrar al desarrollador');
+                console.error('Error en el registro');
             }
         } catch (error) {
-            console.error('Error en la solicitud POST:', error);
+            console.error('Error en la solicitud:', error);
         }
     };
-    
+
     return (
         <>
         <div>
@@ -268,7 +84,7 @@ function RegisterDevs() {
                 <div className="card-body">
                     <h3 className="card-title text-center mt-3 mb-3">
                         <i className="fa fa-pencil"></i>
-                        Regístrate
+                        Regístro Desarrollador
                         </h3>
                     <form onSubmit={handleSubmit}>
                         <h5>Información personal</h5>
@@ -280,7 +96,7 @@ function RegisterDevs() {
                                 type="text" 
                                 name='nombres'
                                 value={formData.nombres}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, nombres: e.target.value })}
                                 required
                                 />
                                 </div>
@@ -292,7 +108,7 @@ function RegisterDevs() {
                                 type="text"
                                 name="apellidos"
                                 value={formData.apellidos}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, apellidos: e.target.value })}
                                 required
                                 />
                                 </div>
@@ -306,7 +122,7 @@ function RegisterDevs() {
                                 type="text" 
                                 name="telefono"
                                 value={formData.telefono}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
                                 required
                                 />
                                 </div>
@@ -318,7 +134,7 @@ function RegisterDevs() {
                                 type="email"
                                 name="email"
                                 value={formData.email}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 required
                                 />
                                 </div>
@@ -332,7 +148,7 @@ function RegisterDevs() {
                                 type="text"
                                 name="pais"
                                 value={formData.pais}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, pais: e.target.value })}
                                 required
                                 />
                                 </div>
@@ -344,7 +160,7 @@ function RegisterDevs() {
                                 type="text"
                                 name="ciudad"
                                 value={formData.ciudad}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, ciudad: e.target.value })}
                                 required
                                 />
                                 </div>
@@ -356,7 +172,7 @@ function RegisterDevs() {
                             type="password"
                             name="password"
                             value={formData.password}
-                            onChange={handleChange}
+                            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                             required
                             />
                         </div>
@@ -368,114 +184,46 @@ function RegisterDevs() {
                                 <select id="rol" className="form-select"
                                 name="rol"
                                 value={formData.rol}
-                                onChange={handleChange}
+                                onChange={(e) => setFormData({ ...formData, rol: e.target.value })}
                                 required
                                 >
-                                    <option value="">Seleccionar Rol</option>
-                                    <option value="front">Front-end</option>
-                                    <option value="back">Back-end</option>
+                                    <option value="front">Frontend</option>
+                                    <option value="back">Backend</option>
                                     <option value="fullstack">Fullstack</option>
                                 </select>
                             </div>
                             </div>
                             <div className="col-md-6">
-                            <div className="mb-3">
-                                <label htmlFor="experiencia" className="form-label">Experiencia</label>
-                                <select id="experiencia" className="form-select"
-                                name="experiencia"
-                                value={formData.experiencia}
-                                onChange={handleChange}
-                                required
-                                >
-                                    <option value="">Seleccionar Experiencia</option>
-                                    <option value="sin experiencia">Sin Experiencia</option>
-                                    <option value="practicas">Prácticas</option>
-                                    <option value="1 año">1 año</option>
-                                    <option value="2 años">2 años</option>
-                                    <option value="3 años">3 años</option>
-                                    <option value="mas de 4">Más de 4 años</option>
-                                </select>
-                            </div>
+                                <div className="mb-3">
+                                    <label htmlFor="experiencia" className="form-label">Experiencia</label>
+                                    <select id="experiencia" className="form-select"
+                                    name="experiencia"
+                                    value={formData.experiencia}
+                                    onChange={(e) => setFormData({ ...formData, experiencia: e.target.value })}
+                                    required
+                                    >
+                                        <option value="practicas">Prácticas</option>
+                                        <option value="1 año">1 año</option>
+                                        <option value="2 años">2 años</option>
+                                        <option value="3 años">3 años</option>
+                                        <option value="mas de 4">Más de 4</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <label className="form-label">Stack tecnológico</label>
-                        <div className="row mb-3">
-                            <div className='col-md-4'>
-                            <div className="form-check">
-                                <input id="html" className="form-check-input"
-                                type="checkbox" 
-                                name="html"
-                                value="HTML"
-                                checked={formData.habilidades.includes('HTML')}
-                                onChange={handleHabilidadChange}
+                        <div id='containerStack' className="mb-3 d-flex flex-wrap">
+                            {formData.habilidades.map((habilidad) => (
+                                <label key={habilidad.nombre}>
+                                <input
+                                    type="checkbox"
+                                    name={habilidad.nombre}
+                                    checked={habilidad.nivel}
+                                    onChange={handleCheckboxChange}
                                 />
-                                <label className="form-check-label" htmlFor="html">HTML</label>
-                            </div>
-                            <div className="form-check">
-                                <input id="css" className="form-check-input"
-                                type="checkbox" 
-                                name="css"
-                                value="CSS"
-                                checked={formData.habilidades.includes('CSS')}
-                                onChange={handleHabilidadChange}
-                                />
-                                <label className="form-check-label" htmlFor="css">CSS</label>
-                            </div>
-                            <div className="form-check">
-                                <input id="javascript" className="form-check-input"
-                                type="checkbox" 
-                                name="javascript"
-                                value="JAVASCRIPT"
-                                checked={formData.habilidades.includes('JAVASCRIPT')}
-                                onChange={handleHabilidadChange}
-                                />
-                                <label className="form-check-label" htmlFor="javascript">JAVASCRIPT</label>
-                            </div>
-                            </div>
-                            <div className='col-md-4'>
-                            <div className="form-check">
-                                <input id="node.js" className="form-check-input"
-                                type="checkbox" 
-                                name="node.js"
-                                value="NODE.JS"
-                                checked={formData.habilidades.includes('NODE.JS')}
-                                onChange={handleHabilidadChange}
-                                />
-                                <label className="form-check-label" htmlFor="node.js">NODE.JS</label>
-                            </div>
-                            <div className="form-check">
-                                <input id="react" className="form-check-input"
-                                type="checkbox" 
-                                name="react"
-                                value="REACT"
-                                checked={formData.habilidades.includes('REACT')}
-                                onChange={handleHabilidadChange}
-                                />
-                                <label className="form-check-label" htmlFor="react">REACT</label>
-                            </div>
-                            </div>
-                            <div className='col-md-4'>
-                            <div className="form-check">
-                                <input id="sql" className="form-check-input"
-                                type="checkbox" 
-                                name="sql"
-                                value="SQL"
-                                checked={formData.habilidades.includes('SQL')}
-                                onChange={handleHabilidadChange}
-                                />
-                                <label className="form-check-label" htmlFor="sql">SQL</label>
-                            </div>
-                            <div className="form-check">
-                                <input id="nosql" className="form-check-input"
-                                type="checkbox" 
-                                name="nosql"
-                                value="NOSQL"
-                                checked={formData.habilidades.includes('NOSQL')}
-                                onChange={handleHabilidadChange}
-                                />
-                                <label className="form-check-label" htmlFor="nosql">NOSQL</label>
-                            </div>
-                            </div>
+                                {habilidad.nombre}
+                                </label>
+                            ))}
                         </div>
                         <div className="d-grid gap-2">
                             <button type="submit" className="btn btn-primary">Registrarse</button>
@@ -490,5 +238,4 @@ function RegisterDevs() {
     </>
     );
 }
->>>>>>> main
 export default RegisterDevs;
