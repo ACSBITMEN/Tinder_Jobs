@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import LoginCompanies from "../Components/CompanyComponents/LoginCompanies";
 
 
-function Dev () {
+function Companies () {
     return (
 
         <>
@@ -17,4 +17,4 @@ function Dev () {
     )
 }
 
-export default Dev
+export default Companies

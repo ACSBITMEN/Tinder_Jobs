@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CompanyMatch from './ComponenteMatchCompany';
 
 const ComponentePerfilCompany = () => {
 
@@ -11,14 +12,17 @@ const ComponentePerfilCompany = () => {
             .then((response) => response.json())
             .then((data) => setCompany(data))
             .catch((error) => console.error('Error:', error));
-        }, [id]);
+    }, [id]);
 
-        if (!company) {
-            return <div>Cargando...</div>;
-        }
+    if (!company) {
+        return <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+    }
 
 
     return (
+        <>
         <div>
             <h1>Perfil de Empresa</h1>
             <p>Nombre: {company.nombres}</p>
@@ -34,6 +38,8 @@ const ComponentePerfilCompany = () => {
                 </ul>
             <p>Experiencia: {company.ofertas_empleo[0].experiencia} </p>
         </div>
+        <CompanyMatch id={id} />
+        </>
     )
 }
 

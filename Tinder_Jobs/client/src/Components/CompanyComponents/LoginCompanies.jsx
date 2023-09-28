@@ -4,54 +4,55 @@ import axios from 'axios';
 import BtnSocialMedia from '../BtnSocialMedia'
 
 const LoginCompanies = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [id, setCompanyId] = useState(null); 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [id, setCompanyId] = useState(null); 
 
     const navigate = useNavigate();
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-      };
-
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
-
+    
     const handleRegisterClick = () => {
       navigate('/RegisterCompany'); // Redirige a la página de registro
     };  
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-    
-        try {
-          const response = await axios.post('http://localhost:3001/api/companies/loginCompany', {
-            email,
-            password,
-          });
-    
-          if (response.status === 200) {
-            const id = response.data.id;
-            setLoggedIn(true);
-            setCompanyId(id); 
-            window.location.href = `http://localhost:5173/companies/perfil/${id}`;
-          } else {
-            setErrorMessage('Inicio de sesión fallido');
-          }
-        } catch (error) {
-          console.error('Error en la solicitud:', error);
-          setErrorMessage('Error en la solicitud');
-        }
-      };
+    const handleEmailChange = (e) => {
+      setEmail(e.target.value);
+    };
 
-      useEffect(() => {
-        if (loggedIn) {
+  const handlePasswordChange = (e) => {
+      setPassword(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      try {
+        const response = await axios.post('http://localhost:3001/api/companies/loginCompany', {
+          email,
+          password,
+        });
+  
+        if (response.status === 200) {
+          const id = response.data.id;
+          setLoggedIn(true);
+          setCompanyId(id); 
           window.location.href = `http://localhost:5173/companies/perfil/${id}`;
+        } else {
+          setErrorMessage('Inicio de sesión fallido');
         }
-      }, [loggedIn, id]);
+      } catch (error) {
+        console.error('Error en la solicitud:', error);
+        setErrorMessage('Error en la solicitud');
+      }
+    };
+
+    useEffect(() => {
+      if (loggedIn) {
+        window.location.href = `http://localhost:5173/companies/perfil/${id}`;
+      }
+    }, [loggedIn, id]);
+
 
     return (
 <div id='containerLoginDev' className="container pt-5 mb-4">
