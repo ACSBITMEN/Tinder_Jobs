@@ -1,7 +1,5 @@
-// 1. modificar el ingreso de habilidades para poder seleccionar varias a la vez 
-// 2. comprobar funcionamieno
-
-import { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BtnSocialMedia from '../BtnSocialMedia';
 import '../../styles/RegisterDevs.css';
