@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
 // que al realizar el redireccionamiento a 'http://localhost:5173/devs/perfil' se carguen los datos del usuario que accedio 
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import RegisterDevs from './RegisterDevs';
+import BtnSocialMedia from '../BtnSocialMedia'
+import '../../Styles/LoginDevs.css'
 
 const LoginDev = () => {
   const [email, setEmail] = useState('');
@@ -12,6 +14,8 @@ const LoginDev = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [id, setDevId] = useState(null); 
 
+  const navigate = useNavigate();
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -19,6 +23,10 @@ const LoginDev = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+
+  const handleRegisterClick = () => {
+    navigate('/RegisterDev'); // Redirige a la página de registro
+  };  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,8 +57,9 @@ const LoginDev = () => {
     }
   }, [loggedIn, id]);
 
+
   return (
-    <div className="container pt-5 mb-4">
+    <div id='containerLoginDev' className="container pt-5 mb-4">
     <div className="row justify-content-center">
         <div className="col-md-6">
             <div className="card">
@@ -89,11 +98,10 @@ const LoginDev = () => {
                               {errorMessage}
                             </div>
                             )}
-                            <button type="button" className="btn btn-secondary">Registrarse</button>
+                            <button type="button" className="btn btn-secondary" onClick={handleRegisterClick}>Registrarse</button>
                         </div>
                     </form>
-                    {/* <BtnSocialMedia/> */}
-                    <RegisterDevs/>
+                    <BtnSocialMedia/>
                 </div>
             </div>
         </div>

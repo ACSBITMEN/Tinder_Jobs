@@ -1,0 +1,90 @@
+.containerOfertas {
+  background-color: gainsboro;
+}
+
+#dev-match-container {
+  overflow: auto;
+  border-radius: 5px;
+}
+
+#dev-match-container .row {
+  margin: 0;
+  padding: .5rem 0 0 0;
+  background-color: rgb(255, 255, 255);
+}
+
+#dev-match-container .card {
+  width: 90%;
+  padding: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#dev-match-container .card {
+  width: 90%;
+  padding: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#dev-match-container .card .card-header {
+  background-color: #545B77;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+  padding-bottom: 4px;
+}
+
+#dev-match-container .card span {
+  background-color: gainsboro;
+  font-size: .8rem;
+  font-weight: 500;
+  margin: 0 3px;
+  padding: 0 4px 2px ;
+  border: .5px solid #8d8d8dd8;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#dev-match-container .card span:hover {
+  background-color: rgb(202, 202, 202);
+  border: .5px solid #474747d8;
+
+}
+
+#dev-match-container .card .card-body {
+  padding: .3rem .8rem 0.5rem 1rem;
+
+}
+
+#dev-match-container .card .card-body .card-subtitle {
+  margin: 0;
+  font-weight: 700;
+}
+
+#dev-match-container .card .card-body div {
+  font-size: 14px;
+}
+
+#dev-match-container .card .card-body div p:first-child {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+#dev-match-container .card .card-body div p span {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: default;
+}
+
+#dev-match-container .card .card-footer {
+  padding: .2rem .7rem;
+  border-top: 2px dashed rgb(107, 107, 107);
+  font-weight: 500;
+  color: #545B77;
+}
+
+#dev-match-container .card .card-footer strong {
+  font-weight: 700;
+  color: #42485f;
+}
