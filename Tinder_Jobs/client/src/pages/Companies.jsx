@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import LoginDev from "../Components/DevComponents/LoginDevs";
+import LoginCompanies from "../Components/CompanyComponents/LoginCompanies";
 
 
-function Dev () {
+function Companies () {
     return (
 
         <>
@@ -10,11 +10,11 @@ function Dev () {
                 <Link to="/" className="btn m-2"> ← Volver a inicio</Link>
             </div>
             <div>
-                <LoginDev/>
+                <LoginCompanies/>
             </div>
         </>
 
     )
 }
 
-export default Dev
+export default Companies

@@ -1,0 +1,124 @@
+#ContainerPerfilCompany {
+  width: 100%;
+  height: 100vh; 
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#ContainerPerfilCompany #cardCompany {
+  min-width: 320px;
+  max-width: 370px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#ContainerPerfilCompany .card-body {
+  padding-top: .2rem;
+}
+
+/* Estilo para capitalizar la primera letra */
+#ContainerPerfilCompany .capitalizar-primera-letra {
+  text-transform: capitalize;
+}
+
+
+#ContainerPerfilCompany .card img {
+  padding: .5rem;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  height: 320px;
+  width: 100%;
+  object-fit: cover;
+}
+
+#ContainerPerfilCompany label {
+  margin-bottom: 3px;
+  font-weight: 600;
+  color: #222222;
+}
+
+#ContainerPerfilCompany h4 {
+  font-size: 150%;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+#ContainerPerfilCompany #subTitleCompany {
+  font-weight: 600;
+}
+
+#ContainerPerfilCompany span {
+  color: black;
+}
+
+#ContainerPerfilCompany p {
+  font-weight: 400;
+}
+
+#ContainerPerfilCompany p {
+  margin: 0;
+  padding: 0;
+}
+
+#ContainerPerfilCompany #HabilidadesCompany span {
+  border: .5px solid #8d8d8dd8;
+  margin: 0 3px;
+}
+
+#ContainerPerfilCompany #HabilidadesCompany span:hover {
+  border: .5px solid #1d1d1d;
+  cursor: pointer;
+}
+
+#ContainerPerfilCompany .card-footer {
+  border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
+} 
+
+#ContainerPerfilCompany .row {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#ContainerPerfilCompany #containerCardCompany {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/*-----------------------*/
+
+/* Agrega la clase "hidden" para ocultar el panel inicialmente */
+.hidden {
+  display: none;
+}
+
+/* Estilos para el panel de coincidencias */
+#devMatchPanel {
+  /* Estilos de diseño y posición, por ejemplo: */
+  min-width: 320px;
+  max-width: 650px;
+  height: 638px;
+  padding: .5rem;
+  top: 0;
+  background-color: #374259;
+  transition: right 0.3s ease-in-out;
+  /* Puedes personalizar más estilos según tus necesidades */
+}
+
+#devMatchPanel h4 {
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+
+  #ContainerPerfilCompany {
+    padding-top: 1rem;
+    align-items: flex-start;
+  }
+
+
+  #devMatchPanel {
+    max-width: 372px;
+  }
+}
