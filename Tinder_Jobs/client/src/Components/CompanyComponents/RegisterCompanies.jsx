@@ -236,14 +236,16 @@ const RegisterCompany = () => {
             {formData.ofertas_empleo.map((oferta, index) => (
               <div key={index}>
                 <label htmlFor={`rol-${index}`}>Rol:</label>
-                <input
-                  type="text"
-                  id={`rol-${index}`}
-                  name="rol"
-                  value={formData.ofertas_empleo[index].rol}
-                  onChange={(e) => handleOfertaInputChange(e, index)}
-                  required
-                />
+                <select 
+                id={`rol-${index}`}
+                name="rol"
+                value={formData.ofertas_empleo[index].rol}
+                onChange={(e) => handleOfertaInputChange(e, index)}
+                >
+                  <option value="back">Back-End</option>
+                  <option value="front">Front-End</option>
+                  <option value="fullstack">Fullstack</option>
+                </select>
                 <div>
                   <p>Habilidades:</p>
                   {['html', 'javascript', 'react', 'node.js', 'sql', 'nosql', 'css'].map((habilidad, habilidadIndex) => (
