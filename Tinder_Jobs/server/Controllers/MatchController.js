@@ -23,8 +23,6 @@ exports.getCompanyMatch = async (req, res) => {
 
         } catch (error) {
             console.error('Error al obtener datos de la base de datos:', error);
-        } finally {
-            mongoose.connection.close();
         }
 }
 

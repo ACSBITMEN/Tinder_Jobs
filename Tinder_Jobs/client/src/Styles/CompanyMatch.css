@@ -1,0 +1,75 @@
+.containerOfertas {
+  background-color: gainsboro;
+}
+
+#Company-match-container {
+  overflow: auto;
+  border-radius: 5px;
+}
+
+#Company-match-container .row {
+  margin: 0;
+  padding: .5rem 0 0 0;
+  background-color: rgb(255, 255, 255);
+}
+
+#Company-match-container .card {
+  width: 90%;
+  padding: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+#Company-match-container .card .card-header {
+  background-color: #545B77;
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+  padding-bottom: 4px;
+}
+
+#Company-match-container .card .card-body div span {
+  background-color: gainsboro;
+  font-size: .8rem;
+  font-weight: 500;
+  margin: 0 3px 5px 3px;
+  padding: 0 4px 2px ;
+  border: .5px solid #8d8d8dd8;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#Company-match-container .card .card-body div span:hover {
+  background-color: rgb(202, 202, 202);
+  border: .5px solid #474747d8;
+}
+
+#Company-match-container .card .card-body {
+  padding: .3rem .8rem 0.5rem 1rem;
+}
+
+#Company-match-container .card .card-body .card-subtitle {
+  margin: 0;
+  font-weight: 700;
+}
+
+#Company-match-container .card .card-body div {
+  font-size: 10px;
+  margin-bottom: .4rem;
+}
+
+#Company-match-container .card .card-body div p:first-child {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+#Company-match-container .card .card-footer {
+  padding: .2rem .7rem;
+  border-top: 2px dashed rgb(107, 107, 107);
+  font-weight: 500;
+  color: #545B77;
+}
+
+#Company-match-container .card .card-footer strong {
+  font-weight: 700;
+  color: #42485f;
+}
