@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import '../../Styles/CompanyMatch.css';
 
 const CompanyMatch = ({ id }) => {
     const [match, setMatch] = useState(null);
@@ -39,23 +40,27 @@ const CompanyMatch = ({ id }) => {
   
     // Bloque de código para mostrar los datos cuando la solicitud está completa
     return (
-      <div>
-        <h2>!! Devs que te buscan !!</h2>
-        {match.devs.map((dev, index) => (
-          <div key={index}>
-            <p>Nombre: {dev.nombres} {dev.apellidos}</p>
-            <p>Telefono: {dev.telefono} </p>
-            <p>Email: {dev.email}</p>
-            <p>Rol:{dev.rol}</p>
-            <p>Experiencia:{dev.experiencia}</p>
-            <h4>Habilidades:</h4>
-            <ul>
-              {dev.habilidades.map((habilidad, index) => (
-                <li key={index}>{habilidad.nombre}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div id='Company-match-container' className="Company-match-container">
+        <div className="row">
+          {match.devs.map((dev, index) => (
+            <div key={index} className="card mb-3">
+              <h4 className="card-header">{dev.nombres.toUpperCase()} {dev.apellidos.toUpperCase()}<br />Desarrollador {dev.rol}</h4>
+              <div className="card-body">
+              <h6 className="card-subtitle mb-1 text-muted">Informacion:</h6>
+                <p>Telefono: {dev.telefono} </p>
+                <p>Email: {dev.email}</p>
+                <p className="capitalizar-primera-letra">Rol: {dev.rol}</p>
+                <p>Experiencia: {dev.experiencia}</p>
+                <h6 className='mt-2'>Habilidades: </h6>
+                <div className='d-flex flex-wrap'>
+                  {dev.habilidades.map((habilidad, index) => (
+                    <span key={index}>{habilidad.nombre.toUpperCase()}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   };

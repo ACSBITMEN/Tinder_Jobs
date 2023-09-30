@@ -179,9 +179,9 @@ const RegisterCompany = () => {
                 </h3>
                 <form onSubmit={handleSubmit}>
                   <h5>Información de la empresa</h5>
-                  <div className="row mb-2">
+                  <div className="row mb-1">
                     <div className="col-md-6">
-                      <div className="mb-1">
+                      <div>
                         <label htmlFor="nombres" className="form-label">Razon social</label>
                         <input id="nombres" className="form-control"
                         type="text"
@@ -193,22 +193,22 @@ const RegisterCompany = () => {
                       </div>
                     </div>
                     <div className="col-md-6">
-                      <div className="mb-1">
-                        <label htmlFor="telefono">Telefono</label>
-                        <input id="telefono" className="form-control"
-                        type="text"
-                        name="telefono"
-                        value={formData.telefono}
-                        onChange={handleInputChange}
-                        required
-                        />
+                      <div>
+                        <label htmlFor="telefono" className="form-label">Telefono</label>
+                          <input id="telefono" className="form-control"
+                          type="text"
+                          name="telefono"
+                          value={formData.telefono}
+                          onChange={handleInputChange}
+                          required
+                          />
                       </div>
                     </div>
                   </div>
                   <div className="row mb-2">
                     <div className="col-md-6">
                       <div className="mb-1">
-                        <label htmlFor="telefono">Email</label>
+                        <label htmlFor="telefono" className="form-label">Email</label>
                         <input id="email" className="form-control"
                         type="email"
                         name="email"
@@ -219,36 +219,81 @@ const RegisterCompany = () => {
                       </div>
                     </div>
                     <div className="col-md-6">
-                      
+                      <div className="mb-1">
+                        <label htmlFor="password" className="form-label">Contraseña:</label>
+                        <input id="password" className="form-control"
+                          type="password"
+                          name="password"
+                          value={formData.password}
+                          onChange={handleInputChange}
+                          required
+                        />
+                      </div>
                     </div>
                   </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <form>
-
-          <div>
-            <p>Ofertas de empleo:</p>
-            {formData.ofertas_empleo.map((oferta, index) => (
-              <div key={index}>
-                <label htmlFor={`rol-${index}`}>Rol:</label>
-                <select 
-                id={`rol-${index}`}
-                name="rol"
-                value={formData.ofertas_empleo[index].rol}
-                onChange={(e) => handleOfertaInputChange(e, index)}
-                >
-                  <option value="back">Back-End</option>
-                  <option value="front">Front-End</option>
-                  <option value="fullstack">Fullstack</option>
-                </select>
-                <div>
-                  <p>Habilidades:</p>
+                  <h5>Oferta de empleo a publicar</h5>
+                  {formData.ofertas_empleo.map((oferta, index) => (
+              <div key={index} className="row mb-2">
+                <div className="col-md-6">
+                  <div className="mb-1">
+                    <label htmlFor={`rol-${index}`} className="form-label">Rol:</label>
+                    <select id={`rol-${index}`} className="form-control"
+                      name="rol"
+                      value={formData.ofertas_empleo[index].rol}
+                      onChange={(e) => handleOfertaInputChange(e, index)}
+                    >
+                    <option value="front">Frontend</option>
+                    <option value="back">Backend</option>
+                    <option value="fullstack">Fullstack</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="mb-1">
+                  <label htmlFor={`experiencia-${index}`} className="form-label">Experiencia:</label>
+                  <select id={`experiencia-${index}`} className="form-select"
+                    name="experiencia"
+                    value={formData.ofertas_empleo[index].experiencia}
+                    onChange={(e) => handleOfertaInputChange(e, index)}
+                  >
+                    <option value="practicas">Prácticas</option>
+                    <option value="sin experiencia">Sin experiencia</option>
+                    <option value="1 año">1 año</option>
+                    <option value="2 años">2 años</option>
+                    <option value="3 años">3 años</option>
+                    <option value="mas de 4">Más de 4</option>
+                  </select>
+                  </div>
+                </div>
+                <div className="row mb-2">
+                    <div className="col-md-6">
+                      <div className="mb-1">
+                      <label htmlFor={`pais-${index}`}>País:</label>
+                      <input id={`pais-${index}`} className="form-control"
+                        type="text"
+                        name="pais"
+                        value={formData.ofertas_empleo[index].pais}
+                        onChange={(e) => handleOfertaInputChange(e, index)}
+                        required
+                      />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="mb-1">
+                        <label htmlFor={`ciudad-${index}`}>Ciudad:</label>
+                        <input id={`ciudad-${index}`} className="form-control"
+                        type="text"
+                        name="ciudad"
+                        value={formData.ofertas_empleo[index].ciudad}
+                        onChange={(e) => handleOfertaInputChange(e, index)}
+                        required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                  <label className="form-label">Stack tecnológico</label>
+                  <div id='containerStackCompany' className="mb-3 d-flex flex-wrap">
                   {['html', 'javascript', 'react', 'node.js', 'sql', 'nosql', 'css'].map((habilidad, habilidadIndex) => (
                     <label key={habilidad}>
                       <input
@@ -260,59 +305,24 @@ const RegisterCompany = () => {
                       {habilidad}
                     </label>
                   ))}
+                  </div>
                 </div>
-                <label htmlFor={`experiencia-${index}`}>Experiencia:</label>
-                <select
-                  id={`experiencia-${index}`}
-                  name="experiencia"
-                  value={formData.ofertas_empleo[index].experiencia}
-                  onChange={(e) => handleOfertaInputChange(e, index)}
-                >
-                  <option value="practicas">Prácticas</option>
-                  <option value="sin experiencia">Sin experiencia</option>
-                  <option value="1 año">1 año</option>
-                  <option value="2 años">2 años</option>
-                  <option value="3 años">3 años</option>
-                  <option value="mas de 4">Más de 4</option>
-                </select>
-                <label htmlFor={`pais-${index}`}>País:</label>
-                <input
-                  type="text"
-                  id={`pais-${index}`}
-                  name="pais"
-                  value={formData.ofertas_empleo[index].pais}
-                  onChange={(e) => handleOfertaInputChange(e, index)}
-                  required
-                />
-                <label htmlFor={`ciudad-${index}`}>Ciudad:</label>
-                <input
-                  type="text"
-                  id={`ciudad-${index}`}
-                  name="ciudad"
-                  value={formData.ofertas_empleo[index].ciudad}
-                  onChange={(e) => handleOfertaInputChange(e, index)}
-                  required
-                />
               </div>
             ))}
-            <button type="button" onClick={handleAddOferta}>
-              Agregar Oferta
-            </button>
+            <div id='btnRegisterCompany' className='d-flex justify-content-around'>
+            <button type="button" className='btn btn-secondary' onClick={handleAddOferta}>Agregar Oferta</button>
+            <button type="submit" className='btn btn-primary'>Registrar</button>
+            </div>
+                </form>
+                <div>
+                  <BtnSocialMedia/>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <label htmlFor="password">Contraseña:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            required
-          />
-          <button type="submit">Registrar</button>
-        </form>
-        <BtnSocialMedia/>
+        </div>
       </div>
+
     </>
   );
 };
