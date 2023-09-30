@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../../Styles/DevMatch.css';
 
+
 const DevMatch = ({ id }) => {
   const [match, setMatch] = useState(null);
 
